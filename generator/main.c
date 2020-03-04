@@ -29,7 +29,7 @@ void perfecte_maze(int ac, char **av)
         map[a] = malloc(sizeof(char) * (atoi(av[1]) + 1));
         map[a][atoi(av[1])] = '\0';
         for (int b = 0; b < (atoi(av[1])) ; b++) {
-            map[a][b] = '.';
+            map[a][b] = 'X';
         }
     }
     map[0][0] = '*';
