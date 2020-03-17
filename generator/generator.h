@@ -31,3 +31,13 @@ typedef struct generator_s
     struct generator_s *next;
     struct generator_s *previous;
 }generator_t;
+
+void orde_one(generator_t *noeud, char **map);
+void orde_two(generator_t *noeud, char **map);
+void orde_tree(generator_t *noeud, char **map);
+void orde_four(generator_t *noeud, char **map);
+int check_neibors(char **map, generator_t *noeud);
+int check_creusage(int x, int y, char **map, generator_t *noeud);
+void creuse(char **map, generator_t *noeud, int check_x, int check_y);
+void add_noeud(int x, int y, generator_t **noeud);
+int randoz(int a);

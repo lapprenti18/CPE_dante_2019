@@ -6,6 +6,9 @@
 ##
 
 SRC	=	main.c	\
+		order.c	\
+		neibors.c	\
+		list_and_rand.c
 
 NAME	=	generator
 
