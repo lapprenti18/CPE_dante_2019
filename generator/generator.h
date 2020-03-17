@@ -23,3 +23,11 @@
 #include <errno.h>
 #include <signal.h>
 #include <sys/sysmacros.h>
+
+typedef struct generator_s
+{
+    int y;
+    int x;
+    struct generator_s *next;
+    struct generator_s *previous;
+}generator_t;

@@ -5,26 +5,18 @@
 ## Makefile
 ##
 
-SRC	=	
-
-NAME	=	mysh
-
-OBJ	=	libmy.a
-
-CSFML	=	-lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
-
-VG	=	-g3
-
-ERROR	=	-Wall -W -Wextra
-
 all	:
-	cd generator ; make re ;cd ../solver ; make re ;
+	make -C solver
+	make -C generator
 
 clean	:
-	cd generator ; make clean ;cd ../solver ; make clean ;
+	make clean -C solver
+	make clean -C generator
 
 fclean	:
-	cd generator ; make fclean ;cd ../solver ; make fclean ;
+	make fclean -C solver
+	make fclean -C generator
 
 re	:
-	cd generator ; make fclean ;cd ../solver ; make fclean ;
+	make re -C solver
+	make re -C generator

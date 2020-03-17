@@ -18,7 +18,7 @@ VG	=	-g3
 ERROR	=	-Wall -W -Wextra
 
 all	:
-	gcc -o $(NAME) $(SRC) $(ERROR) $(VG)
+	gcc -o $(NAME) $(SRC) -Ofast -O3
 
 clean	:
 	rm -f *.o $(OBJ)
