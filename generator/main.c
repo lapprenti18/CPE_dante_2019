@@ -22,9 +22,19 @@ char **perfecte_maze(int ac, char **av)
     return (map);
 }
 
-void imperfecte_maze(int ac, char **av)
+char **imperfecte_maze(char **map)
 {
-    return;
+    int rand;
+
+    for (int a = 0; map[a]; a++) {
+        for (int b = 0; map[a][b]; b++) {
+            if (map[a][b] == 'X') {
+                rand += 1;
+                (rand % 5) == 0 ? map[a][b] = '*' : 0;
+            }
+        }
+    }
+    return (map);
 }
 
 char **generate(char **map, generator_t *noeud, char *av[])
@@ -59,10 +69,10 @@ int main(int ac, char **av)
     noeud.previous = NULL;
     if (ac > 4 || ac < 3)
         return (84);
-    if (ac == 4)
-        imperfecte_maze(ac, av);
     map = perfecte_maze(ac, av);
     map = generate(map, &noeud, av);
+    if (ac == 4)
+        map = imperfecte_maze(map);
     for (; map[a + 1]; a++)
         printf("%s\n", map[a]);
     printf("%s", map[a]);
