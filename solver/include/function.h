@@ -10,6 +10,12 @@
 
 #include "main.h"
 
-int check_valid_file(char *filepath);
+typedef struct solver_s
+{
+    char *raw_map;
+    char **map;
+} solver_t;
+
+int check_valid_file(solver_t *solver);
 
 #endif /* !FUNCTION_H_ */

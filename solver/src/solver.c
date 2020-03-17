@@ -7,7 +7,7 @@
 
 #include "../include/main.h"
 
-int solver(char *filepath)
+int my_solver(solver_t *solver)
 {
-    
+    return (0);
 }

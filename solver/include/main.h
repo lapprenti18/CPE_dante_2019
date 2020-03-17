@@ -15,6 +15,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string.h>
+
 #include "function.h"
+
+// typedef struct solver_s
+// {
+//     char *raw_map;
+//     char **map;
+// } solver_t;
 
 #endif /* !MAIN_H_ */
