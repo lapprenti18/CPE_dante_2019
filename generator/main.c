@@ -168,7 +168,7 @@ int main(int ac, char **av)
     noeud.y = 0;
     noeud.next = NULL;
     noeud.previous = NULL;
-    if (ac > 4)
+    if (ac > 4 || ac < 3)
         return (84);
     if (ac == 4)
         imperfecte_maze(ac, av);
