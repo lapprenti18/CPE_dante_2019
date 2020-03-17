@@ -7,15 +7,15 @@
 
 #include "generator.h"
 
-char **perfecte_maze(int ac, char **av)
+char **perfecte_maze(int height, int width)
 {
-    char **map = malloc(sizeof(char *) * (atoi(av[2]) + 1));
+    char **map = malloc(sizeof(char *) * (width + 1));
 
-    map[atoi(av[2])] = NULL;
-    for (int a = 0; a < atoi(av[2]); a++) {
-        map[a] = malloc(sizeof(char) * (atoi(av[1]) + 1));
-        map[a][atoi(av[1])] = '\0';
-        for (int b = 0; b < (atoi(av[1])) ; b++) {
+    map[width] = NULL;
+    for (int a = 0; a < width; a++) {
+        map[a] = malloc(sizeof(char) * (height + 1));
+        map[a][height] = '\0';
+        for (int b = 0; b < (height) ; b++) {
             map[a][b] = 'X';
         }
     }
@@ -37,11 +37,8 @@ char **imperfecte_maze(char **map)
     return (map);
 }
 
-char **generate(char **map, generator_t *noeud, char *av[])
+char **generate(char **map, generator_t *noeud, int check_y, int check_x)
 {
-    int check_x = atoi(av[2]);
-    int check_y = atoi(av[1]);
-
     while (noeud) {
         map[noeud->y][noeud->x] = '*';
         if (check_neibors(map, noeud) != 0) {
@@ -61,16 +58,18 @@ int main(int ac, char **av)
     char **map;
     generator_t noeud;
     int a = 0;
+    int height = atoi(av[1]);
+    int width = atoi(av[2]);
 
     srand(time(NULL));
     noeud.x = 0;
     noeud.y = 0;
     noeud.next = NULL;
     noeud.previous = NULL;
-    if (ac > 4 || ac < 3)
+    if (ac > 4 || ac < 3 || height <= 0 || width <= 0)
         return (84);
-    map = perfecte_maze(ac, av);
-    map = generate(map, &noeud, av);
+    map = perfecte_maze(height, width);
+    map = generate(map, &noeud, height, width);
     if (ac == 4)
         map = imperfecte_maze(map);
     for (; map[a + 1]; a++)

@@ -7,15 +7,15 @@
 
 #include "generator.h"
 
-void creuse(char **map, generator_t *noeud, int check_x, int check_y)
+void creuse(char **map, generator_t *noeud, int check_y, int check_x)
 {
     int order = rand() % 4;
 
     if (noeud->x == check_x - 2 && noeud->y == check_y - 1 && map[check_y - 1]\
     [check_x - 1] == 'X')
         return (add_noeud(check_x - 1, check_y - 1, &noeud));
-    if (noeud->x == check_x - 1 && noeud->y == check_y - 2 && map[check_y - 1]\
-    [check_x - 1] == 'X')
+    else if (noeud->x == check_x - 1 && noeud->y == check_y - 2 && map\
+    [check_y - 1][check_x - 1] == 'X')
         return (add_noeud(check_x - 1, check_y - 1, &noeud));
     if (order == 0)
         orde_one(noeud, map);
