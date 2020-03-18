@@ -19,14 +19,14 @@ void print_map(solver_t *solver)
 
 int check_neighbour(solver_t *solver)
 {
-    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '*')
-        return (1);
     if (solver->map[solver->y][solver->x + 1] == '*')
         return (1);
-    if (solver->y > 0 && solver->map[solver->y - 1][solver->x] == '*')
+    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '*')
         return (1);
     if (solver->map[solver->y + 1] != NULL
     && solver->map[solver->y + 1][solver->x] == '*')
+        return (1);
+    if (solver->y > 0 && solver->map[solver->y - 1][solver->x] == '*')
         return (1);
 
     return (0);
@@ -68,8 +68,12 @@ int my_solver(solver_t *solver)
 
     while ("ricard") {
         if (check_neighbour(solver) == 1) {
+            // print_map(solver);
+            // printf("\n\n");
             go_front(solver);
         } else {
+            // print_map(solver);
+            // printf("\n\n"); 
             go_back(solver);
         }
         if (check_end(solver) == 1) {

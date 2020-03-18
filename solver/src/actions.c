@@ -25,12 +25,12 @@ void go_back(solver_t *solver)
 {
     solver->map[solver->y][solver->x] = '1';
 
-    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '2') {
-        solver->x += -1;
-        return;
-    }
     if (solver->map[solver->y][solver->x + 1] == '2') {
         solver->x += 1;
+        return;
+    }
+    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '2') {
+        solver->x += -1;
         return;
     }
     if (solver->y > 0 && solver->map[solver->y - 1][solver->x] == '2') {
@@ -48,21 +48,21 @@ void go_front(solver_t *solver)
 {
     solver->map[solver->y][solver->x] = '2';
 
-    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '*') {
-        solver->x += -1;
-        return;
-    }
     if (solver->map[solver->y][solver->x + 1] == '*') {
         solver->x += 1;
-        return;
-    }
-    if (solver->y > 0 && solver->map[solver->y - 1][solver->x] == '*') {
-        solver->y += -1;
         return;
     }
     if (solver->map[solver->y + 1] != NULL
     && solver->map[solver->y + 1][solver->x] == '*') {
         solver->y += 1;
+        return;
+    }
+    if (solver->x > 0 && solver->map[solver->y][solver->x - 1] == '*') {
+        solver->x += -1;
+        return;
+    }
+    if (solver->y > 0 && solver->map[solver->y - 1][solver->x] == '*') {
+        solver->y += -1;
         return;
     }
 }
