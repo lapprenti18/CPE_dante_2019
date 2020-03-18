@@ -7,7 +7,7 @@
 
 #include "generator.h"
 
-void creuse(char **map, generator_t *noeud, int check_y, int check_x)
+void creuse(char **map, generator_t *noeud, int check_x, int check_y)
 {
     int order = rand() % 4;
 

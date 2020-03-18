@@ -68,10 +68,12 @@ int main(int ac, char **av)
     noeud.previous = NULL;
     if (ac > 4 || ac < 3 || height <= 0 || width <= 0)
         return (84);
-    map = perfecte_maze(height, width);
-    map = generate(map, &noeud, height, width);
-    if (ac == 4)
-        map = imperfecte_maze(map);
+    do {
+        map = perfecte_maze(height, width);
+        map = generate(map, &noeud, height, width);
+        if (ac == 4)
+            map = imperfecte_maze(map);
+    } while(map[width - 1][height - 1] == 'X');
     for (; map[a + 1]; a++)
         printf("%s\n", map[a]);
     printf("%s", map[a]);
