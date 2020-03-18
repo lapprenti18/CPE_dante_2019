@@ -8,7 +8,8 @@
 SRC =	src/main.c \
 		src/check_valid_file.c \
 		src/str_to_word_array.c \
-		src/solver.c
+		src/solver.c \
+		src/actions.c
 
 CC	= 	gcc -Wextra -W -Ofast -O3
 

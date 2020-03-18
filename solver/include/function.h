@@ -21,5 +21,9 @@ typedef struct solver_s
 } solver_t;
 
 int check_valid_file(solver_t *solver);
+void go_front(solver_t *solver);
+void go_back(solver_t *solver);
+void replace_all(solver_t *solver);
+char **my_str_to_word_array(char *str, char separator);
 
 #endif /* !FUNCTION_H_ */

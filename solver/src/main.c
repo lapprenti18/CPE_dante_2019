@@ -19,7 +19,6 @@ void exit_on_error(solver_t *solver)
             free(solver->map[i]);
     printf("Please enter a valid map !\n");
     exit (84);
-    
 }
 
 void fill_buffer(int ac, char *av[], solver_t *solver)
