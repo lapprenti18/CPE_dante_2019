@@ -46,6 +46,32 @@ void get_nb_lines(solver_t *solver)
     solver->nb_lines = i;
 }
 
+void no_sol()
+{
+    printf("no solution found");
+    exit(0);
+}
+
+int check_loose(solver_t *solver)
+{
+    int y = solver->y;
+    int x = solver->x;
+
+    if (solver->map[y][x + 1] == '*' || solver->map[y][x + 1] == '2')
+        return (0);
+
+    if (x > 0 && solver->map[y][x - 1] == '*' || x > 0 && solver->map[y][x - 1] == '2')
+        return (0);
+
+    if (solver->map[y + 1] != NULL && solver->map[y + 1][x] == '*'
+    || solver->map[y + 1] != NULL && solver->map[y + 1][x] == '2')
+        return (0);
+
+    if (y > 0 && solver->map[y - 1][x] == '*' || y > 0 && solver->map[y - 1][x] == '2')
+        return (0);
+    no_sol();
+}
+
 int check_end(solver_t *solver)
 {
     if (solver->x == solver->line_length - 1 
@@ -54,6 +80,7 @@ int check_end(solver_t *solver)
         print_map(solver);
         return (1);
     }
+    check_loose(solver);
 
     return (0);
 }
@@ -68,12 +95,8 @@ int my_solver(solver_t *solver)
 
     while ("ricard") {
         if (check_neighbour(solver) == 1) {
-            // print_map(solver);
-            // printf("\n\n");
             go_front(solver);
         } else {
-            // print_map(solver);
-            // printf("\n\n"); 
             go_back(solver);
         }
         if (check_end(solver) == 1) {
