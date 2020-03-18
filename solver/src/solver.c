@@ -46,7 +46,7 @@ void get_nb_lines(solver_t *solver)
     solver->nb_lines = i;
 }
 
-void no_sol()
+void no_sol(void)
 {
     printf("no solution found");
     exit(0);
@@ -74,7 +74,7 @@ int check_loose(solver_t *solver)
 
 int check_end(solver_t *solver)
 {
-    if (solver->x == solver->line_length - 1 
+    if (solver->x == solver->line_length - 1
     && solver->y == solver->nb_lines - 1) {
         replace_all(solver);
         print_map(solver);

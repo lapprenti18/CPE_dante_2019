@@ -13,7 +13,7 @@ void add_node_at_front(int value, list_t **node)
 
     new->value = value;
     new->previous = NULL;
-    
+
     if (*node == NULL) {
         new->next = NULL;
         *node = new;
