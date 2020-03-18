@@ -10,7 +10,7 @@ SRC =	src/main.c \
 		src/str_to_word_array.c \
 		src/solver.c
 
-CC	= 	gcc -Wextra -W -g3
+CC	= 	gcc -Wextra -W -Ofast -O3
 
 OBJ = $(SRC:.c=.o)
 
