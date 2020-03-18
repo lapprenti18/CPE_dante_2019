@@ -14,6 +14,10 @@ typedef struct solver_s
 {
     char *raw_map;
     char **map;
+    int x;
+    int y;
+    int line_length;
+    int nb_lines;
 } solver_t;
 
 int check_valid_file(solver_t *solver);

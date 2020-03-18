@@ -8,6 +8,8 @@
 #include "../include/main.h"
 #include "../include/function.h"
 
+int my_solver(solver_t *solver);
+
 void exit_on_error(solver_t *solver)
 {
     if (solver->raw_map != NULL)
@@ -17,6 +19,7 @@ void exit_on_error(solver_t *solver)
             free(solver->map[i]);
     printf("Please enter a valid map !\n");
     exit (84);
+    
 }
 
 void fill_buffer(int ac, char *av[], solver_t *solver)
@@ -32,6 +35,8 @@ void fill_buffer(int ac, char *av[], solver_t *solver)
     size = read(fd, solver->raw_map, st.st_size + 1);
     solver->raw_map[size] = 0;
     solver->map = NULL;
+    solver->x = 0;
+    solver->y = 0;
 }
 
 int main(int ac, char *av[])

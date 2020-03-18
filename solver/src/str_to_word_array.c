@@ -44,12 +44,26 @@ char **fill_array(char *str, char separator, char **array)
     return (array);
 }
 
+int line_length(char *buffer)
+{
+    int i = 0;
+
+    for (; buffer[i] != '\n'; i++);
+    return (i);
+}
+
 char **my_str_to_word_array(char *str, char separator)
 {
+    int length = 0;
+    char **array;
+
     if (str == NULL || separator == 0)
         return (NULL);
-    char **array = malloc(sizeof(char *) * (nb_of_args(str, separator) + 2));
+    length = line_length(str);
+    array = malloc(sizeof(char *) * (nb_of_args(str, separator) + 2));
+
     for (int j = 0; j < (nb_of_args(str, separator) + 1); j += 1)
-        array[j] = malloc(sizeof(char) * 10000);
+        array[j] = malloc(sizeof(char) * (length + 1));
+
     return (fill_array(str, separator, array));
 }
