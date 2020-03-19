@@ -7,6 +7,15 @@
 
 #include "generator.h"
 
+void print_maze(char **map)
+{
+    int a = 0;
+
+    for (; map[a + 1]; a++)
+        printf("%s\n", map[a]);
+    printf("%s", map[a]);
+}
+
 char **perfecte_maze(int height, int width)
 {
     char **map = malloc(sizeof(char *) * (width + 1));
@@ -73,9 +82,7 @@ int main(int ac, char **av)
         map = generate(map, &noeud, height, width);
         if (ac == 3)
             map = imperfecte_maze(map);
-    } while(map[width - 1][height - 1] == 'X');
-    for (; map[a + 1]; a++)
-        printf("%s\n", map[a]);
-    printf("%s", map[a]);
+    } while (map[width - 1][height - 1] == 'X');
+    print_maze(map);
     return (0);
 }

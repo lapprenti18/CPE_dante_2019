@@ -25,5 +25,7 @@ void go_front(solver_t *solver);
 void go_back(solver_t *solver);
 void replace_all(solver_t *solver);
 char **my_str_to_word_array(char *str, char separator);
+int check_loose(solver_t *solver);
+int check_end(solver_t *solver);
 
 #endif /* !FUNCTION_H_ */
