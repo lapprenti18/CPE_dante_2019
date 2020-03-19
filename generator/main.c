@@ -71,7 +71,7 @@ int main(int ac, char **av)
     do {
         map = perfecte_maze(height, width);
         map = generate(map, &noeud, height, width);
-        if (ac == 4)
+        if (ac == 3)
             map = imperfecte_maze(map);
     } while(map[width - 1][height - 1] == 'X');
     for (; map[a + 1]; a++)
