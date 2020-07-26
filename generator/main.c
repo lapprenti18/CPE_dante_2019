@@ -46,7 +46,7 @@ char **imperfecte_maze(char **map)
     return (map);
 }
 
-char **generate(char **map, generator_t *noeud, int check_y, int check_x)
+char ** generate(char **map, generator_t *noeud, int check_y, int check_x)
 {
     while (noeud) {
         map[noeud->y][noeud->x] = '*';
